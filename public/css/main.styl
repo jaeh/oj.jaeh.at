@@ -1,0 +1,233 @@
+@import mixins
+@import reset
+@import font
+@import icomoon
+@import nojs
+
+
+body_font_color = #555
+body_bg_color = #fefefe
+a_color = #7c7c7c
+a_color_hover = #555
+
+body_font_color_night = #aaa
+body_bg_color_night = #111
+a_color_night = #aaa
+a_color_hover_night = #fefefe
+
+html, body
+  height 100%
+  display block
+
+body
+  background-color body_bg_color
+  color body_font_color
+  margin 0 auto
+  overflow hidden
+  text-align center
+  width 100%
+  position absolute
+  transition(background-color 0.5s)
+  font-size 12px
+  user-select none
+
+  #content
+    transition(color 0.5s)
+
+  &.night
+    background-color body_bg_color_night
+    color body_font_color_night
+
+    a
+      color a_color_night
+
+      &:hover
+        color a_color_hover_night
+    
+    #btn-left, #btn-right
+      color darken(a_color, 30%)
+      &:hover
+        color lighten(a_color, 70%)
+
+  &.js
+    &.fullscreen
+      header.main
+        margin -1.5em 0 0
+
+    header.main
+      transition(margin 0.2s)
+
+form
+  input, 
+  textarea
+    transition(0.5s)
+
+header.main
+  left 0
+  width 100%
+  margin 3% 0
+
+  nav#menu
+    width 100%
+
+    ul
+      li
+        display inline
+        margin 0 0.5em
+
+        &#fullscreen-container
+          bottom 1%
+          left 0
+          margin 0
+          position absolute
+          text-align center
+          width 100%
+
+a
+  color a_color
+  cursor pointer
+  text-decoration none  
+  transition(color 0.5s)
+
+  &:hover
+    color a_color_hover
+
+#content
+  display inline-block
+  max-height 90%
+  min-width 80%
+  position relative
+  width auto
+
+noscript#image-gallery, div#gallery
+  display inline-block
+  max-height 85%
+  width 100%
+
+  img
+    box-sizing border-box
+    max-width 100%
+    width auto
+    transition(max-height 0.3s linear)
+
+#extra-menu-container
+  position absolute
+  left 1em
+  top 1em
+
+  li
+    display inline
+
+#gallery-container
+  li
+    z-index 0
+    opacity 0
+    transition(opacity 0.5s)
+    position absolute
+    width 100%
+
+    &.displayed
+      z-index 1
+      opacity 1
+      transition(opacity 0.5s linear 0.5s)
+      h2
+        opacity 1
+        user-select initial
+
+    h2
+      opacity 0
+      height 1.2em
+      margin 3% 0 0
+      font-size .7em
+      letter-spacing 0.08em
+      
+
+form
+  max-width 800px
+  margin 0 auto
+  input, textarea
+    color body_font_color
+    background-color darken(body_bg_color, 5%)
+    border 2px solid lighten(body_bg_color_night, 90%)
+    border-radius 2px
+    display block
+    width 100%
+    margin 1em 0
+    padding 1em
+    box-sizing border-box
+
+  textarea
+    height 150px
+
+body.night
+  form
+    input, textarea
+      color body_font_color_night
+      background-color lighten(body_bg_color_night, 5%)
+      border 2px solid darken(body_bg_color, 90%)
+
+.error
+  color #f00
+
+/*
+#gallery-container:before,
+#gallery-container:after
+  position absolute
+  top 42.5%
+  font-size 2em
+  z-index 1
+
+#gallery-container:before
+  content "\e606"
+  left -4%
+
+#gallery-container:after 
+  content "\e603"
+  right -4%
+*/
+
+body header.main nav#menu li#leftright-container
+  width 3em
+  margin 0 0.5em 0 3em
+  display inline-block
+  vertical-align middle
+
+  #btn-left, #btn-right
+    color lighten(a_color, 30%)
+    &:hover
+      color darken(a_color, 70%)
+
+  #btn-left
+    float left
+  #btn-right
+    float right
+
+@media (max-width: 450px)
+  body
+    width 95%
+    font-size 23px
+
+    &.js.fullscreen
+      header.main
+        margin -6em 0 0
+
+    header.main
+      nav#menu
+        ul
+          li
+            display block
+            margin 0.5em 0
+
+            &#leftright-container
+              margin 0
+              font-size 1.2em
+
+
+    #extra-menu-container
+      font-size 1.2em
+      left .5em
+      position fixed
+      top .5em
+
+      li
+        display block
