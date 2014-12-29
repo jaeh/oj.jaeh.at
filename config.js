@@ -4,10 +4,10 @@ module.exports = {
       'oj'
     ]
   , production: [
-      'oj.jaeh.at'
+      'oliverjiszda.com'
     ]
   , staging: [
-      'ojs.jaeh.at'
+      'staging.oliverjiszda.com'
     ]
   }
 };
