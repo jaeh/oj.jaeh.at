@@ -3,7 +3,7 @@ html(lang="en")
   head
     meta(charset="utf-8")
     title Oliver Jiszda Photography
-    meta(name='viewport' content='width=device-width')
+    meta(name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1')
     link(rel='stylesheet', href='/css/main.css')
 
     meta(property='og:title' content='Oliver Jiszda Photography')
@@ -11,19 +11,6 @@ html(lang="en")
 
   block body
     body.nojs
-      header.main
-        block header
-          nav#menu
-            ul
-              li
-                a(href='/') oliver jiszda
-              li
-                a(href='/work') work
-              li
-                a(href='/about') about
-              li
-                a(href='/contact') contact
-
       #content
         block content
           div empty body content
