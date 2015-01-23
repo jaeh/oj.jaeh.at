@@ -1,13 +1,13 @@
 module.exports = {
   hosts: {
     development: [
-      'oj'
+      'minotme'
     ]
   , production: [
-      'oliverjiszda.com'
+      'minotme.com'
     ]
   , staging: [
-      'staging.oliverjiszda.com'
+      'staging.minotme.com'
     ]
   }
 };
